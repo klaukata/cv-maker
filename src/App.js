@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import Form from './components/Form'
-
+import CV from './components/CV'
 
 class App extends React.Component {
   constructor() {
@@ -28,15 +28,9 @@ class App extends React.Component {
     return (
       <>
         <div className='App-form'>
-          <input type="text" onInput={(el) => this.insertTxt(el.target)}/>
-
-          
           <Form />
-          
         </div>
-        <div className='App-cv'>
-          <p id='ass'></p>
-        </div>
+        <CV />
       </>
     ); 
   }
