@@ -6,13 +6,13 @@ class Input extends React.Component {
         this.insertTxt = this.insertTxt.bind(this)
       }
     insertTxt(el) {
-        let id = 'cv-' + el.target.getAttribute('id').slice(5);
+        let id = 'cv' + el.target.getAttribute('id').slice(5);
         let text = el.target.value;
         document.getElementById(id).textContent = text;
     }
     render() {
         return (
-            <input type="text" id={'form-' + this.props.placeholder.toLowerCase()} placeholder={this.props.placeholder} onInput={(el) => this.insertTxt(el)}/>
+            <input type="text" id={'form-' + this.props.placeholder} placeholder={this.props.placeholder} onInput={(el) => this.insertTxt(el)}/>
         )
     }
 };
