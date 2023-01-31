@@ -7,15 +7,16 @@ class CV extends React.Component {
         super(props);
         this.state = data;
     }
-    createAndFillElements() {
-        let keysArr = Object.keys(this.state);
-        let els = keysArr.map((key) => <p id={key} key={uniqid()}>{this.state[key]}</p>);
+    createAndFillElements(section) {
+        let keysArr = Object.keys(this.state[section]);
+        //console.log(this.state[section][key]);
+        let els = keysArr.map((key) => <p id={key} key={uniqid()}>{this.state[section][key]}</p>);
         return (els)
     }
     render() {
         return (
             <div className='CV'>
-                {this.createAndFillElements()}
+                {this.createAndFillElements('personalData')}
             </div>
         )
     }
