@@ -15,11 +15,8 @@ class Form extends React.Component {
                 let job = <div>{placeholderNames.map((placeholder) => 
                     <Input placeholder={placeholder} />
                 )}</div>;
-                console.log(job);
                 inputs.push(job)
             }
-        
-
         }
         return (inputs)
         
@@ -35,7 +32,6 @@ class Form extends React.Component {
                 <div>
                     <h2>Work Experience</h2>
                     {this.mountInputs('workExperience', ['Company', 'Position', 'DateStart', 'DateEnd', 'Description'])}
-                    {/* {this.mountInputs(Object.keys(data['workExperience']).length, Object.values(data['workExperience'][0]))} */}
 
                 </div>
                 <div>
