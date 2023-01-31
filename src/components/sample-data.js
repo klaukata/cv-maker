@@ -1,40 +1,41 @@
 let data = {
     personalData: {
-        cvName: 'Jane Doe',
-        cvPosition: 'Software Developer',
-        cvPhone: '012 345 678',
-        cvMail: 'janedoe@kath.bo',
-        cvLocation: 'd00pa town',
-        cvDescription: 'lorem ipsum'
+        Name: 'Jane Doe',
+        Position: 'Software Developer',
+        Phone: '012 345 678',
+        Mail: 'janedoe@kath.bo',
+        Location: 'd00pa town',
+        Description: 'lorem ipsum'
     },
     workExperience: {
         work1: {
-            companyName: 'Company A',
-            position: 'Intern',
-            date: {
-                start: '2015',
-                end: '2016'
-            },
-            description: 'Lorem ipsum'
+            Company: 'Company A',
+            Position: 'Intern',
+            Start: '2015',
+            End: '2016',
+            Description: 'Lorem ipsum'
         },
         work2: {
-            companyName: 'Company B',
-            position: 'Intern',
-            date: {
-                start: '2015',
-                end: '2016'
-            },
-            description: 'Lorem ipsum'
+            Company: 'Company B',
+            Position: 'Intern',
+            Start: '2015',
+            End: '2016',
+            Description: 'Lorem ipsum'
         },
         work3: {
-            companyName: 'Company C',
-            position: 'Intern',
-            date: {
-                start: '2015',
-                end: '2016'
-            },
-            description: 'Lorem ipsum'
+            Company: 'Company C',
+            Position: 'Intern',
+            Start: '2015',
+            End: '2016',
+            Description: 'Lorem ipsum'
         }
+    },
+    education: {
+        Course: 'Bidibi MDNA',
+        University: 'Oompa Loompa School',
+        Start: '2015',
+        End: '2022',
+        Description: 'Lorem ipsum'
     }
     
 };
