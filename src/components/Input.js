@@ -4,21 +4,38 @@ import data from './sample-data';
 class Input extends React.Component {
     constructor() {
         super();
-        this.insertTxt = this.insertTxt.bind(this)
+        this.insertTxt = this.insertTxt.bind(this);
+        
     }
     componentDidMount() {
-        document.getElementById('form-' + this.props.placeholder).value = data['personalData']['cv' + this.props.placeholder];
+        let placeholder = this.props.placeholder;
+        if (Object.keys(data['personalData']).includes(placeholder)) {
+            document.getElementById('form-' + this.props.placeholder).value = data['personalData'][this.props.placeholder];
+        } else if (placeholder.startsWith('work')) {
+            let work = placeholder.slice(0, 5);
+            let key = placeholder.slice(5);
+            document.getElementById('form-' + this.props.placeholder).value = data['workExperience'][work][key]
+            
+            console.log(key);
+
+        }
     }
     insertTxt(el) {
-        let id = 'cv' + el.target.getAttribute('id').slice(5);
+        let id = 'cv-' + el.target.getAttribute('id').slice(5);
         let text = el.target.value;
         document.getElementById(id).textContent = text;
+    }
+    slicePlaceholder(ph) {
+        if (ph.startsWith('work')) {
+            ph = ph.slice(5)
+        }
+        return ph
     }
     render() {
         let placeholder = this.props.placeholder;
         return (
             <input type="text" id={'form-' + placeholder} 
-                placeholder={placeholder} onInput={(el) => this.insertTxt(el)}
+                placeholder={this.slicePlaceholder(placeholder)} onInput={(el) => this.insertTxt(el)}
             />
         )
     }
