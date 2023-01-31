@@ -9,11 +9,11 @@ class Form extends React.Component {
             inputs = placeholderNames.map((placeholder) => 
                 <Input placeholder={placeholder} />
             );
-        } else if (section === 'workExperience') {
-            let jobsArr = Object.keys(data['workExperience']);
-            for (let job of jobsArr) {
+        } else if (section === 'workExperience' || section === 'education') {
+            let sectionArr = Object.keys(data[section]);
+            for (let section of sectionArr) {
                 let x = <div>{placeholderNames.map((placeholder) => 
-                    <Input placeholder={job+placeholder} />
+                    <Input placeholder={section+placeholder} />
                 )}</div>;
                 inputs.push(x)
             }
@@ -36,6 +36,7 @@ class Form extends React.Component {
                 </div>
                 <div>
                     <h2>Education</h2>
+                    {this.mountInputs('education', ['Course', 'University', 'Start', 'End', 'Description'])}
                 </div>
             </form>
         )
