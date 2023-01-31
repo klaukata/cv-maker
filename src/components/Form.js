@@ -10,13 +10,20 @@ class Form extends React.Component {
                 <Input placeholder={placeholder} />
             );
         } else if (section === 'workExperience') {
-            let numOfJobs = Object.keys(data['workExperience']).length;
-            for (let x = 0; x < numOfJobs; x++) {
-                let job = <div>{placeholderNames.map((placeholder) => 
-                    <Input placeholder={placeholder} />
+            let jobsArr = Object.keys(data['workExperience']);
+            for (let job of jobsArr) {
+                let x = <div>{placeholderNames.map((placeholder) => 
+                    <Input placeholder={job+placeholder} />
                 )}</div>;
-                inputs.push(job)
+                inputs.push(x)
             }
+            // let numOfJobs = Object.keys(data['workExperience']).length;
+            // for (let x = 0; x < numOfJobs; x++) {
+            //     let job = <div>{placeholderNames.map((placeholder) => 
+            //         <Input placeholder={placeholder} />
+            //     )}</div>;
+            //     inputs.push(job)
+            // }
         }
         return (inputs)
         
