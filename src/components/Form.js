@@ -17,13 +17,6 @@ class Form extends React.Component {
                 )}</div>;
                 inputs.push(x)
             }
-            // let numOfJobs = Object.keys(data['workExperience']).length;
-            // for (let x = 0; x < numOfJobs; x++) {
-            //     let job = <div>{placeholderNames.map((placeholder) => 
-            //         <Input placeholder={placeholder} />
-            //     )}</div>;
-            //     inputs.push(job)
-            // }
         }
         return (inputs)
         
@@ -38,7 +31,7 @@ class Form extends React.Component {
                 </div>
                 <div>
                     <h2>Work Experience</h2>
-                    {this.mountInputs('workExperience', ['Company', 'Position', 'DateStart', 'DateEnd', 'Description'])}
+                    {this.mountInputs('workExperience', ['Company', 'Position', 'Start', 'End', 'Description'])}
 
                 </div>
                 <div>
