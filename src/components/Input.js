@@ -7,7 +7,7 @@ class Input extends React.Component {
         this.insertTxt = this.insertTxt.bind(this)
     }
     componentDidMount() {
-        console.log(this.props.placeholder);
+        document.getElementById('form-' + this.props.placeholder).value = data['personalData']['cv' + this.props.placeholder];
     }
     insertTxt(el) {
         let id = 'cv' + el.target.getAttribute('id').slice(5);
@@ -19,7 +19,6 @@ class Input extends React.Component {
         return (
             <input type="text" id={'form-' + placeholder} 
                 placeholder={placeholder} onInput={(el) => this.insertTxt(el)}
-                value={data['personalData']['cv' + placeholder]}
             />
         )
     }
