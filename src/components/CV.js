@@ -19,7 +19,7 @@ class CV extends React.Component {
                 keysArr = Object.keys(this.state[section][job]);
                 console.log(keysArr);
                 let el = <div id={'cv-'+job}>
-                    {keysArr.map((key) => <p id={'cv-' + key} key={uniqid()}>{this.state[section][job][key]}</p>)}
+                    {keysArr.map((key) => <p id={'cv-' + job + key} key={uniqid()}>{this.state[section][job][key]}</p>)}
                 </div>
                 els.push(el);
             }
