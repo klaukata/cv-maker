@@ -1,24 +1,41 @@
 import React from 'react';
 import Input from './Input';
+import data from './sample-data';
 
 class Form extends React.Component {
-    mountInputs(placeholderNames) {
-        let inputs = placeholderNames.map((placeholder) => 
-            <Input placeholder={placeholder} />
-        );
-        return (inputs)
+    mountInputs(section, placeholderNames) {
+        let inputs = [];
+        if (section === 'personalDetails') {
+            inputs = placeholderNames.map((placeholder) => 
+                <Input placeholder={placeholder} />
+            );
+        } else if (section === 'workExperience') {
+            let numOfJobs = Object.keys(data['workExperience']).length;
+            for (let x = 0; x < numOfJobs; x++) {
+                let job = <div>{placeholderNames.map((placeholder) => 
+                    <Input placeholder={placeholder} />
+                )}</div>;
+                console.log(job);
+                inputs.push(job)
+            }
+        
 
+        }
+        return (inputs)
+        
     }
     render() {
         return (
             <form>
                 <div>
                     <h2>Pesonal Details</h2>
-                    {this.mountInputs(['Name', 'Position', 'Phone', 'Mail', 'Location', 'Description'])}
+                    {this.mountInputs('personalDetails', ['Name', 'Position', 'Phone', 'Mail', 'Location', 'Description'])}
                     
                 </div>
                 <div>
                     <h2>Work Experience</h2>
+                    {this.mountInputs('workExperience', ['Company', 'Position', 'DateStart', 'DateEnd', 'Description'])}
+                    {/* {this.mountInputs(Object.keys(data['workExperience']).length, Object.values(data['workExperience'][0]))} */}
 
                 </div>
                 <div>
