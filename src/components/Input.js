@@ -27,9 +27,9 @@ class Input extends React.Component {
         document.getElementById(id).textContent = text;
     }
     slicePlaceholder(ph) {
-        if (ph.startsWith('work')) {
+        if (ph.startsWith('work') || ph.startsWith('educ')) {
             ph = ph.slice(5)
-        }
+        } 
         return ph
     }
     render() {
