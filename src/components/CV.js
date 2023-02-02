@@ -13,7 +13,7 @@ class CV extends React.Component {
         if (section === 'personalData') {
             keysArr = Object.keys(this.state[section]);
             els = keysArr.map((key) => <p id={'cv-' + key} key={uniqid()}>{this.state[section][key]}</p>);
-        } else if (section === 'workExperience') {
+        } else if (section === 'workExperience' || section === 'education') {
             let jobArr = Object.keys(this.state[section]);
             for (let job of jobArr) {
                 keysArr = Object.keys(this.state[section][job]);
@@ -34,7 +34,9 @@ class CV extends React.Component {
                 <div id='cv-workExperience'>
                     {this.createAndFillElements('workExperience')} 
                 </div>
-                
+                <div id='cv-education'>
+                    {this.createAndFillElements('education')} 
+                </div>
             </div>
         )
     }
