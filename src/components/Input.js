@@ -15,6 +15,10 @@ class Input extends React.Component {
             let work = placeholder.slice(0, 5);
             let key = placeholder.slice(5);
             document.getElementById('form-' + this.props.placeholder).value = data['workExperience'][work][key];
+        } else if (placeholder.startsWith('edu')) {
+            let edu = placeholder.slice(0, 5);
+            let key = placeholder.slice(5);
+            document.getElementById('form-' + this.props.placeholder).value = data['education'][edu][key];
         }
     }
     insertTxt(el) {
