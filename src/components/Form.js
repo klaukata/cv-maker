@@ -1,7 +1,7 @@
-import React, { Children } from 'react';
-import Input from './Input';
+import React from 'react';
+import Input from './sample-data/Input';
 import DeleteButton from './DeleteButton';
-import data from './sample-data';
+import data from './sample-data/sample-data';
 
 class Form extends React.Component {
     constructor() {

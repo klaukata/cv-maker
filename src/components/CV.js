@@ -1,5 +1,5 @@
 import React from 'react';
-import data from './sample-data';
+import data from './sample-data/sample-data';
 import uniqid from "uniqid";
 
 class CV extends React.Component {
@@ -28,15 +28,18 @@ class CV extends React.Component {
     render() {
         return (
             <div className='CV'>
-                <div id='cv-personalData'>
-                    {this.createAndFillElements('personalData')} 
+                <div className='insideCV'>
+                    <div id='cv-personalData'>
+                        {this.createAndFillElements('personalData')} 
+                    </div>
+                    <div id='cv-workExperience'>
+                        {this.createAndFillElements('workExperience')} 
+                    </div>
+                    <div id='cv-education'>
+                        {this.createAndFillElements('education')} 
+                    </div>    
                 </div>
-                <div id='cv-workExperience'>
-                    {this.createAndFillElements('workExperience')} 
-                </div>
-                <div id='cv-education'>
-                    {this.createAndFillElements('education')} 
-                </div>
+                
             </div>
         )
     }
