@@ -1,0 +1,24 @@
+body {
+    font-family: 'Inter', sans-serif;
+}
+div#root {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    div.App-form, div.CV {
+        margin: 2em 4em;
+        padding: 3em 2em;
+        border: 1px solid black;
+        width: 80vw;
+    }
+}
+
+@media (min-width: 930px) {
+    div#root {
+        flex-direction: row;
+        align-items: normal;
+        justify-content: center;
+    }
+}
+
