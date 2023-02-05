@@ -1,5 +1,5 @@
 import React from 'react';
-import Input from './sample-data/Input';
+import SampleInput from './sample-data/SampleInput';
 import DeleteButton from './DeleteButton';
 import data from './sample-data/sample-data';
 
@@ -14,14 +14,14 @@ class Form extends React.Component {
         let inputs = [];
         if (section === 'personalDetails') {
             inputs = placeholderNames.map((placeholder) => 
-                <Input placeholder={placeholder} />
+                <SampleInput placeholder={placeholder} />
             );
         } else if (section === 'workExperience' || section === 'education') {
             let sectionArr = Object.keys(data[section]);
             for (let section of sectionArr) {
                 let x = <div className={section}>
                     {placeholderNames.map((placeholder) => 
-                        <Input placeholder={section+placeholder} />
+                        <SampleInput placeholder={section+placeholder} />
                     )}
                     <DeleteButton />
                 </div>;
