@@ -1,6 +1,7 @@
 import React from 'react';
-import SampleInput from './sample-data/SampleInput';
+import Input from './Input';
 import DeleteButton from './DeleteButton';
+import SampleInput from './sample-data/SampleInput';
 import data from './sample-data/sample-data';
 
 class Form extends React.Component {
@@ -40,7 +41,7 @@ class Form extends React.Component {
             placeholderNames = ['Course', 'University', 'Start', 'End', 'Description']
         };
         let div = (<div className={section}>
-            <p>hi</p>
+            <Input />
             {/* {placeholderNames.map((placeholder) => 
                 <p>hi!</p>
                 <Input placeholder={section+placeholder} />
