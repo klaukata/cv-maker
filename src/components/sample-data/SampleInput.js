@@ -1,7 +1,7 @@
 import React from 'react';
 import data from './sample-data';
 
-class Input extends React.Component {
+class SampleInput extends React.Component {
     constructor() {
         super();
         this.insertTxt = this.insertTxt.bind(this);
@@ -41,4 +41,4 @@ class Input extends React.Component {
     }
 };
 
-export default Input;
+export default SampleInput;
