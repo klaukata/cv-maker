@@ -20,16 +20,16 @@ class SampleInput extends React.Component {
             document.getElementById('form-' + this.props.placeholder).value = data['education'][edu][key];
         }
     }
-    insertTxt(el) {
-        let id = 'cv-' + el.target.getAttribute('id').slice(5);
-        let text = el.target.value;
-        document.getElementById(id).textContent = text;
-    }
     slicePlaceholder(ph) {
         if (ph.startsWith('work') || ph.startsWith('educ')) {
             ph = ph.slice(5)
         } 
         return ph
+    }
+    insertTxt(el) {
+        let id = 'cv-' + el.target.getAttribute('id').slice(5);
+        let text = el.target.value;
+        document.getElementById(id).textContent = text;
     }
     render() {
         let placeholder = this.props.placeholder;
