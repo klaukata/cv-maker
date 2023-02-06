@@ -6,7 +6,6 @@ class DeleteButton extends React.Component {
         let className = el.classList[0];
         let idName = 'cv-' + className;
         let cvEl = document.getElementById(idName)
-        // console.log(cvEl);
         el.remove();
         cvEl.remove()
     }
