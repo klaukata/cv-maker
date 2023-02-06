@@ -27,17 +27,15 @@ class CV extends React.Component {
     render() {
         return (
             <div className='CV'>
-                <div className='insideCV'>
-                    <div id='cv-personalData'>
-                        {this.createAndFillElements('personalData')} 
-                    </div>
-                    <div id='cv-workExperience'>
-                        {this.createAndFillElements('workExperience')} 
-                    </div>
-                    <div id='cv-education'>
-                        {this.createAndFillElements('education')} 
-                    </div>    
+                <div id='cv-personalData'>
+                    {this.createAndFillElements('personalData')} 
                 </div>
+                <div id='cv-workExperience'>
+                    {this.createAndFillElements('workExperience')} 
+                </div>
+                <div id='cv-education'>
+                    {this.createAndFillElements('education')} 
+                </div>    
                 
             </div>
         )
