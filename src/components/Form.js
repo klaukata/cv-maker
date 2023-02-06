@@ -3,6 +3,7 @@ import Input from './Input';
 import DeleteButton from './DeleteButton';
 import SampleInput from './sample-data/SampleInput';
 import data from './sample-data/sample-data';
+import uniqid from "uniqid";
 
 class Form extends React.Component {
     constructor() {
@@ -40,17 +41,16 @@ class Form extends React.Component {
         } else {
             placeholderNames = ['Course', 'University', 'Start', 'End', 'Description']
         };
-        let div = (<div className={section}>
-            <Input />
-            {/* {placeholderNames.map((placeholder) => 
-                <p>hi!</p>
-                <Input placeholder={section+placeholder} />
-            )} */}
-        </div>);
+        let div = (
+            <div className={uniqid()}>
+                {placeholderNames.map((placeholder) =>
+                    <Input placeholder={placeholder} />
+                )}
+                <DeleteButton />
+            </div>);
         this.setState({
             expAddedChildren: this.state.expAddedChildren.concat(div)
         })
-        console.log(div);
         
         
     }
