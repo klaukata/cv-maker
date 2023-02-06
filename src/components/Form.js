@@ -2,6 +2,7 @@ import React from 'react';
 import Input from './Input';
 import DeleteButton from './DeleteButton';
 import SampleInput from './sample-data/SampleInput';
+import CVSection from './CVAddedSection';
 import data from './sample-data/sample-data';
 import uniqid from "uniqid";
 
@@ -9,7 +10,8 @@ class Form extends React.Component {
     constructor() {
         super();
         this.state = {
-            expAddedChildren: []
+            expAddedChildren: [],
+            eduAddedChildren: []
         };
     }
     mountInputs(section, placeholderNames) {
@@ -33,13 +35,16 @@ class Form extends React.Component {
         return (inputs)
     }
     addSection(e) {
-        let parent = e.target.parentElement
+        let parent = e.target.parentElement;
         let section = parent.getAttribute('id').slice(5); // section = id name
         let placeholderNames = [];
+        let stateName;
         if (section === 'workExperience') {
-            placeholderNames = ['Company', 'Position', 'Start', 'End', 'Description']
+            placeholderNames = ['Company', 'Position', 'Start', 'End', 'Description'];
+            stateName = 'expAddedChildren'
         } else {
-            placeholderNames = ['Course', 'University', 'Start', 'End', 'Description']
+            placeholderNames = ['Course', 'University', 'Start', 'End', 'Description'];
+            stateName = 'eduAddedChildren'
         };
         let div = (
             <div className={uniqid()}>
@@ -47,12 +52,18 @@ class Form extends React.Component {
                     <Input placeholder={placeholder} />
                 )}
                 <DeleteButton />
-            </div>);
+            </div>); 
         this.setState({
-            expAddedChildren: this.state.expAddedChildren.concat(div)
-        })
-        
-        
+            [stateName]: this.state[stateName].concat(div)
+        });
+        this.createCVSection(section);
+        console.log(section);
+    }
+    createCVSection(id) {
+        let CVParentId = 'cv-' + id;
+        let parent = document.getElementById(CVParentId);
+        //parent.appendChild(<CVSection />)
+        console.log(parent);
     }
     render() {
         return (
@@ -72,6 +83,7 @@ class Form extends React.Component {
                     <h2>Education</h2>
                     <button type='button' onClick={(e) => this.addSection(e)}>ADD</button>
                     {this.mountInputs('education', ['Course', 'University', 'Start', 'End', 'Description'])}
+                    {this.state.eduAddedChildren.map(x => x)}
                 </div>
             </form>
         )
