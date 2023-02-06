@@ -5,20 +5,19 @@ import uniqid from "uniqid";
 class CV extends React.Component {
     constructor(props) {
         super(props);
-        this.state = data;
     }
     createAndFillElements(section) {
         let keysArr = [];
         let els = []
         if (section === 'personalData') {
-            keysArr = Object.keys(this.state[section]);
-            els = keysArr.map((key) => <p id={'cv-' + key} key={uniqid()}>{this.state[section][key]}</p>);
+            keysArr = Object.keys(data[section]);
+            els = keysArr.map((key) => <p id={'cv-' + key} key={uniqid()}>{data[section][key]}</p>);
         } else if (section === 'workExperience' || section === 'education') {
-            let jobArr = Object.keys(this.state[section]);
+            let jobArr = Object.keys(data[section]);
             for (let job of jobArr) {
-                keysArr = Object.keys(this.state[section][job]);
+                keysArr = Object.keys(data[section][job]);
                 let el = <div id={'cv-'+job}>
-                    {keysArr.map((key) => <p id={'cv-' + job + key} key={uniqid()}>{this.state[section][job][key]}</p>)}
+                    {keysArr.map((key) => <p id={'cv-' + job + key} key={uniqid()}>{data[section][job][key]}</p>)}
                 </div>
                 els.push(el);
             }
