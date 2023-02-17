@@ -28,13 +28,16 @@ class CV extends React.Component {
         return (
             <div className='CV'>
                 <div id='cv-personalData'>
-                    {this.createAndFillElements('personalData')} 
+                    {this.props.children}
+                    {console.log(this.props)}
+                    {this.createAndFillElements('personalData')}
                 </div>
                 <div id='cv-workExperience'>
-                    {this.createAndFillElements('workExperience')} 
+                    {this.createAndFillElements('workExperience')}
+                    
                 </div>
                 <div id='cv-education'>
-                    {this.createAndFillElements('education')} 
+                    {this.createAndFillElements('education')}
                 </div>    
                 
             </div>
