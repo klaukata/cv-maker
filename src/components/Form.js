@@ -61,7 +61,6 @@ class Form extends React.Component {
     createCVSection(id) {
         let CVParentId = 'cv-' + id;
         let parent = document.getElementById(CVParentId);
-        console.log(parent);
         <CVSection />
     }
     render() {
