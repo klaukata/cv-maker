@@ -34,7 +34,7 @@ class Form extends React.Component {
         }
         return (inputs)
     }
-    addSection(e) {
+    addInputs(e) {
         let parent = e.target.parentElement;
         let section = parent.getAttribute('id').slice(5); // section = id name
         let placeholderNames = [];
@@ -49,7 +49,7 @@ class Form extends React.Component {
         let div = (
             <div className={uniqid()}>
                 {placeholderNames.map((placeholder) =>
-                    <Input placeholder={placeholder} />
+                    <Input placeholder={placeholder} id={uniqid()} />
                 )}
                 <DeleteButton />
             </div>); 
@@ -57,13 +57,12 @@ class Form extends React.Component {
             [stateName]: this.state[stateName].concat(div)
         });
         this.createCVSection(section);
-        console.log(section);
     }
     createCVSection(id) {
         let CVParentId = 'cv-' + id;
         let parent = document.getElementById(CVParentId);
-        //parent.appendChild(<CVSection />)
         console.log(parent);
+        <CVSection />
     }
     render() {
         return (
@@ -74,14 +73,15 @@ class Form extends React.Component {
                 </div>
                 <div id='form-workExperience'>
                     <h2>Work Experience</h2>
-                    <button type='button' onClick={(e) => this.addSection(e)}>ADD</button>
+                    <button type='button' onClick={(e) => this.addInputs(e)}>ADD</button>
                     {this.mountInputs('workExperience', ['Company', 'Position', 'Start', 'End', 'Description'])}
                     {this.state.expAddedChildren.map(x => x)}
+                    <button onClick={this.props.onAddChild}>Add Another Child Component</button>
 
                 </div>
                 <div id='form-education'>
                     <h2>Education</h2>
-                    <button type='button' onClick={(e) => this.addSection(e)}>ADD</button>
+                    <button type='button' onClick={(e) => this.addInputs(e)}>ADD</button>
                     {this.mountInputs('education', ['Course', 'University', 'Start', 'End', 'Description'])}
                     {this.state.eduAddedChildren.map(x => x)}
                 </div>
