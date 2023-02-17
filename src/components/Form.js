@@ -34,7 +34,8 @@ class Form extends React.Component {
         }
         return (inputs)
     }
-    addInputs(e) {
+    appendComponents(e) {
+        this.props.onAddChild(); // creates cv section
         let parent = e.target.parentElement;
         let section = parent.getAttribute('id').slice(5); // section = id name
         let placeholderNames = [];
@@ -72,15 +73,14 @@ class Form extends React.Component {
                 </div>
                 <div id='form-workExperience'>
                     <h2>Work Experience</h2>
-                    <button type='button' onClick={(e) => this.addInputs(e)}>ADD</button>
+                    <button type='button' onClick={(e) => this.appendComponents(e)}>ADD</button>
                     {this.mountInputs('workExperience', ['Company', 'Position', 'Start', 'End', 'Description'])}
                     {this.state.expAddedChildren.map(x => x)}
-                    <button onClick={this.props.onAddChild}>Add Another Child Component</button>
 
                 </div>
                 <div id='form-education'>
                     <h2>Education</h2>
-                    <button type='button' onClick={(e) => this.addInputs(e)}>ADD</button>
+                    <button type='button' onClick={(e) => this.appendComponents(e)}>ADD</button>
                     {this.mountInputs('education', ['Course', 'University', 'Start', 'End', 'Description'])}
                     {this.state.eduAddedChildren.map(x => x)}
                 </div>
