@@ -3,9 +3,8 @@ import React from 'react';
 class DeleteButton extends React.Component {
     eventfunc(e) {
         let el = e.target.parentElement;
-        let className = el.classList[0];
-        let idName = 'cv-' + className;
-        let cvEl = document.getElementById(idName)
+        let idName = 'cv-' + el.id;
+        let cvEl = document.getElementById(idName);
         el.remove();
         cvEl.remove()
     }
