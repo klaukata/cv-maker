@@ -49,7 +49,7 @@ class Form extends React.Component {
             stateName = 'eduAddedChildren'
         };
         let div = (
-            <div id={'addedSection-' + section + (this.props.num+1)}>
+            <div id={'addedSection-' + section + (this.props.num+1)} key={uniqid()}>
                 {placeholderNames.map((placeholder, i) => 
                     <Input placeholder={placeholder} key={i}/>
                 )}
