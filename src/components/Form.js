@@ -17,15 +17,15 @@ class Form extends React.Component {
     mountInputs(section, placeholderNames) {
         let inputs = [];
         if (section === 'personalDetails') {
-            inputs = placeholderNames.map((placeholder) => 
-                <SampleInput placeholder={placeholder} />
+            inputs = placeholderNames.map((placeholder, i) => 
+                <SampleInput placeholder={placeholder} key={i}/>
             );
         } else if (section === 'workExperience' || section === 'education') {
             let sectionArr = Object.keys(data[section]);
             for (let section of sectionArr) {
-                let x = <div className={section}>
-                    {placeholderNames.map((placeholder) => 
-                        <SampleInput placeholder={section+placeholder} />
+                let x = <div id={section}  key={uniqid()}>
+                    {placeholderNames.map((placeholder, i) => 
+                        <SampleInput placeholder={section+placeholder} key={i} />
                     )}
                     <DeleteButton />
                 </div>;
@@ -35,9 +35,10 @@ class Form extends React.Component {
         return (inputs)
     }
     appendComponents(e) {
-        this.props.onAddChild(); // creates cv section
         let parent = e.target.parentElement;
         let section = parent.getAttribute('id').slice(5); // section = id name
+
+        this.props.onAddChild(section); // creates cv section
         let placeholderNames = [];
         let stateName;
         if (section === 'workExperience') {
@@ -48,22 +49,20 @@ class Form extends React.Component {
             stateName = 'eduAddedChildren'
         };
         let div = (
-            <div className={uniqid()}>
-                {placeholderNames.map((placeholder) =>
-                    <Input placeholder={placeholder} id={uniqid()} />
+            <div id={'addedSection-' + section + (this.props.num+1)}>
+                {placeholderNames.map((placeholder, i) => 
+                    <Input placeholder={placeholder} key={i}/>
                 )}
                 <DeleteButton />
             </div>); 
         this.setState({
             [stateName]: this.state[stateName].concat(div)
         });
-        this.createCVSection(section);
+        //this.createCVSection(section);
     }
-    createCVSection(id) {
-        let CVParentId = 'cv-' + id;
-        let parent = document.getElementById(CVParentId);
-        <CVSection />
-    }
+    // createCVSection(id) {
+    //     <CVSection idNmame={id}/>
+    // }
     render() {
         return (
             <form>
