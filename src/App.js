@@ -26,16 +26,23 @@ class App extends React.Component {
 
   render() {
     const childrenExp = [];
-    
+    const childrenEdu = [];
+
     for (var i = 1; i < this.state.numOfAddedExpDivs + 1; i += 1) {
-      childrenExp.push(<CVSection num={i}/>);
+      console.log(i);
+      childrenExp.push(<CVSection num={i} key={i}/>);
     };
     
+    for (var i = 1; i < this.state.numOfAddedExpDivs + 1; i += 1) {
+      childrenEdu.push(<CVSection num={i} key={i}/>);
+    };
+
     return (
       <>
         <Form onAddChild={this.onAddExpDiv} num={this.state.numOfAddedExpDivs} />
         <CV onAddChild={this.onAddExpDiv}>
           {childrenExp}
+          {/* {childrenEdu} */}
         </CV>
       </>
     ); 
