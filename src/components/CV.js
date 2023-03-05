@@ -16,8 +16,8 @@ class CV extends React.Component {
             let jobArr = Object.keys(data[section]);
             for (let job of jobArr) {
                 keysArr = Object.keys(data[section][job]);
-                let el = <div id={'cv-'+job}>
-                    {keysArr.map((key) => <p id={'cv-' + job + key} key={uniqid()}>{data[section][job][key]}</p>)}
+                let el = <div id={'cv-'+job} key={uniqid()}>
+                    {keysArr.map((key, i) => <p id={'cv-' + job + key} key={uniqid()}>{data[section][job][key]}</p>)}
                 </div>
                 els.push(el);
             }
@@ -28,15 +28,15 @@ class CV extends React.Component {
         return (
             <div className='CV'>
                 <div id='cv-personalData'>
-                    {this.props.children}
-                    {console.log(this.props)}
                     {this.createAndFillElements('personalData')}
                 </div>
                 <div id='cv-workExperience'>
+                    {this.props.children}
                     {this.createAndFillElements('workExperience')}
                     
                 </div>
                 <div id='cv-education'>
+
                     {this.createAndFillElements('education')}
                 </div>    
                 
