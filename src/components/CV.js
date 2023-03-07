@@ -17,7 +17,6 @@ class CV extends React.Component {
             
             for (let job of jobArr) {
                 keysArr = Object.keys(data[section][job]);
-                console.log(keysArr);
                 let el = <div id={'cv-'+job} key={uniqid()}>
                     {keysArr.map((key) => <p id={'cv-' + job + key} key={uniqid()}>{data[section][job][key]}</p>)}
                 </div>
