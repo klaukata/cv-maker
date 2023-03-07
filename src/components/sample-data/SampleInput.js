@@ -8,8 +8,9 @@ class SampleInput extends React.Component {
     }
     componentDidMount() {
         let placeholder = this.props.placeholder;
-        if (Object.keys(data['personalData']).includes(placeholder)) {
-            document.getElementById('form-' + this.props.placeholder).value = data['personalData'][this.props.placeholder];
+        if (placeholder.startsWith('personal')) {
+            document.getElementById('form-' + this.props.placeholder).value = data['personalData'][this.props.placeholder.substring(12)];
+            console.log(this.props.placeholder);
         } else if (placeholder.startsWith('work')) {
             let work = placeholder.slice(0, 5);
             let key = placeholder.slice(5);
@@ -23,7 +24,9 @@ class SampleInput extends React.Component {
     slicePlaceholder(ph) {
         if (ph.startsWith('work') || ph.startsWith('educ')) {
             ph = ph.slice(5)
-        } 
+        } else {
+            ph = ph.slice(12)
+        }
         return ph
     }
     insertTxt(el) {
@@ -33,6 +36,7 @@ class SampleInput extends React.Component {
     }
     render() {
         let placeholder = this.props.placeholder;
+        console.log(data['personalData'][this.props.placeholder.substring(12)]);
         return (
             <input type="text" id={'form-' + placeholder} 
                 placeholder={this.slicePlaceholder(placeholder)} onInput={(el) => this.insertTxt(el)}
