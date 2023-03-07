@@ -5,8 +5,9 @@ class DeleteButton extends React.Component {
         let el = e.target.parentElement;
         let idName = 'cv-' + el.id;
         let cvEl = document.getElementById(idName);
-        el.remove();
-        cvEl.remove()
+        console.log(el);
+        el.style.cssText = 'display: none !important';
+        cvEl.style.display = 'none';
     }
     render() {
         return (
