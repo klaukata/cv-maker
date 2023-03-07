@@ -17,9 +17,11 @@ class Form extends React.Component {
     mountInputs(section, placeholderNames) {
         let inputs = [];
         if (section === 'personalDetails') {
-            inputs = placeholderNames.map((placeholder, i) => 
-                <SampleInput placeholder={placeholder} key={i}/>
-            );
+            inputs = <div id={section}  key={uniqid()}>
+                    {placeholderNames.map((placeholder, i) => 
+                        <SampleInput placeholder={section+placeholder} key={i} />
+                    )}
+                </div>;
         } else if (section === 'workExperience' || section === 'education') {
             let sectionArr = Object.keys(data[section]);
             for (let section of sectionArr) {
@@ -32,13 +34,16 @@ class Form extends React.Component {
                 inputs.push(x)
             }
         }
+        console.log(inputs);
         return (inputs)
     }
     appendComponents(e) {
         let parent = e.target.parentElement;
         let section = parent.getAttribute('id').slice(5); // section = id name
 
-        this.props.onAddChild(section); // creates cv section
+        //this.props.onAddChild(section); // creates cv section
+
+
         let placeholderNames = [];
         let stateName;
         if (section === 'workExperience') {
@@ -55,14 +60,14 @@ class Form extends React.Component {
                 )}
                 <DeleteButton />
             </div>); 
+        // console.log(this.state[stateName]);
+
+        // console.log(div);
         this.setState({
-            [stateName]: this.state[stateName].concat(div)
+            [stateName]: [...this.state[stateName], div]
         });
-        //this.createCVSection(section);
+    
     }
-    // createCVSection(id) {
-    //     <CVSection idNmame={id}/>
-    // }
     render() {
         return (
             <form>
@@ -81,7 +86,7 @@ class Form extends React.Component {
                     <h2>Education</h2>
                     <button type='button' onClick={(e) => this.appendComponents(e)}>ADD</button>
                     {this.mountInputs('education', ['Course', 'University', 'Start', 'End', 'Description'])}
-                    {this.state.eduAddedChildren.map(x => x)}
+                    {/* {this.state.eduAddedChildren.map(x => x)} */}
                 </div>
             </form>
         )
