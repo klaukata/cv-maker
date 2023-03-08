@@ -2,7 +2,6 @@ import React from 'react';
 import Input from './Input';
 import DeleteButton from './DeleteButton';
 import SampleInput from './sample-data/SampleInput';
-import CVSection from './CVAddedSection';
 import data from './sample-data/sample-data';
 import uniqid from "uniqid";
 
