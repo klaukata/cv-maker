@@ -10,13 +10,15 @@ class Form extends React.Component {
     constructor() {
         super();
         this.state = {
+            expSampleChildren: this.mountInputs('workExperience', ['Company', 'Position', 'Start', 'End', 'Description']),
+            eduSampleChildren: this.mountInputs('education', ['Course', 'University', 'Start', 'End', 'Description']),
             expAddedChildren: [],
             eduAddedChildren: []
         };
     }
     mountInputs(section, placeholderNames) {
         let inputs = [];
-        if (section === 'personalDetails') {
+        if (section === 'personalData') {
             inputs = <div id={section}  key={uniqid()}>
                     {placeholderNames.map((placeholder, i) => 
                         <SampleInput placeholder={section+placeholder} key={i} />
@@ -34,7 +36,6 @@ class Form extends React.Component {
                 inputs.push(x)
             }
         }
-        console.log(inputs);
         return (inputs)
     }
     appendComponents(e) {
@@ -73,20 +74,21 @@ class Form extends React.Component {
             <form>
                 <div>
                     <h2>Pesonal Details</h2>
-                    {this.mountInputs('personalDetails', ['Name', 'Position', 'Phone', 'Mail', 'Location', 'Description'])}
+                    {this.mountInputs('personalData', ['Name', 'Position', 'Phone', 'Mail', 'Location', 'Description'])}
+                    
                 </div>
                 <div id='form-workExperience'>
                     <h2>Work Experience</h2>
                     <button type='button' onClick={(e) => this.appendComponents(e)}>ADD</button>
-                    {this.mountInputs('workExperience', ['Company', 'Position', 'Start', 'End', 'Description'])}
+                    {this.state.expSampleChildren.map(x => x)}
                     {this.state.expAddedChildren.map(x => x)}
 
                 </div>
                 <div id='form-education'>
                     <h2>Education</h2>
                     <button type='button' onClick={(e) => this.appendComponents(e)}>ADD</button>
-                    {this.mountInputs('education', ['Course', 'University', 'Start', 'End', 'Description'])}
-                    {/* {this.state.eduAddedChildren.map(x => x)} */}
+                    {this.state.eduSampleChildren.map(x => x)}
+                    {this.state.eduAddedChildren.map(x => x)}
                 </div>
             </form>
         )
