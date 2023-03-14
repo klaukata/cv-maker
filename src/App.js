@@ -29,11 +29,9 @@ class App extends React.Component {
     const childrenEdu = [];
 
     for (var i = 1; i < this.state.numOfAddedExpDivs + 1; i += 1) {
-      console.log(i);
       childrenExp.push(<CVSection num={i} key={i}/>);
     };
-    
-    for (var i = 1; i < this.state.numOfAddedExpDivs + 1; i += 1) {
+    for (var i = 1; i < this.state.numOfAddedEduDivs + 1; i += 1) {
       childrenEdu.push(<CVSection num={i} key={i}/>);
     };
 
@@ -42,7 +40,7 @@ class App extends React.Component {
         <Form onAddChild={this.onAddExpDiv} num={this.state.numOfAddedExpDivs} />
         <CV onAddChild={this.onAddExpDiv}>
           {childrenExp}
-          {/* {childrenEdu} */}
+          {childrenEdu}
         </CV>
       </>
     ); 
