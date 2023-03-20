@@ -5,40 +5,52 @@ import uniqid from "uniqid";
 class CV extends React.Component {
     constructor(props) {
         super(props);
-    }
-    createAndFillElements(section) {
-        let els = []
-        let keysArr = [];
-        if (section === 'personalData') {
-            keysArr = Object.keys(data[section]);
-            els = keysArr.map((key) => <p id={'cv-personalDetails' + key} key={uniqid()}>{data[section][key]}</p>);
-        } else if (section === 'workExperience' || section === 'education') {
-            let jobArr = Object.keys(data[section]);
-            
-            for (let job of jobArr) {
-                keysArr = Object.keys(data[section][job]);
-                let el = <div id={'cv-'+job} key={uniqid()}>
-                    {keysArr.map((key) => <p id={'cv-' + job + key} key={uniqid()}>{data[section][job][key]}</p>)}
-                </div>
-                els.push(el);
-            }
+        this.state = {
+            personalDataElements: [],
+            experienceElements: [],
+            educationElements: []
         }
-        return (els);
     }
+    componentDidMount() {
+        for (let x in data) { // executes 3 times
+            let keysArr = [];
+            let elements = [];
+            let stateName;
+            if (x === 'personalData') {
+                stateName = 'personalDataElements';
+                keysArr = Object.keys(data[x]);
+                elements = keysArr.map((key) => <p id={'cv-personalData' + key} key={uniqid()}>{data[x][key]}</p>);
+            } else if (x === 'workExperience' || x === 'education') {
+                let arr = Object.keys(data[x]);
+                stateName = (x === 'workExperience') ? 'experienceElements' : 'educationElements';
+                for (let y of arr) {
+                    keysArr = Object.keys(data[x][y]);
+                    let el = <div id={'cv-'+y} key={uniqid()}>
+                        {keysArr.map((key) => <p id={'cv-' + y + key} key={uniqid()}>{data[x][y][key]}</p>)}
+                    </div>
+                    elements.push(el);
+                }
+            }
+            this.setState({
+                [stateName]: [...this.state[stateName], elements]
+            }); 
+            
+        }
+    }
+    
     render() {
         return (
             <div className='CV'>
                 <div id='cv-personalData'>
-                    {this.createAndFillElements('personalData')}
+                    {this.state.personalDataElements}
                 </div>
                 <div id='cv-workExperience'>
-                    {this.props.children}
-                    {this.createAndFillElements('workExperience')}
-                    
+                    {this.props.children[0]}
+                    {this.state.experienceElements}
                 </div>
                 <div id='cv-education'>
-
-                    {this.createAndFillElements('education')}
+                    {this.props.children[1]}
+                    {this.state.educationElements}
                 </div>    
                 
             </div>
