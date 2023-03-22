@@ -29,7 +29,7 @@ class CV extends React.Component {
                     let el = <div id={'cv-'+y} key={uniqid()}>
                         {keysArr.map((key) => {
                             let pElement = <p id={'cv-' + y + key} key={uniqid()}>{data[x][y][key]}</p>
-                            let signElement = (key ==="Company") ? <p>|</p> : (key ==="Start") ? <p>-</p> : false;
+                            let signElement = (key === "Company" || key === "University") ? <p>|</p> : (key ==="Start") ? <p>-</p> : false;
                             return (!signElement)? pElement : <>{pElement}{signElement}</>;
                         })}
                     </div>
