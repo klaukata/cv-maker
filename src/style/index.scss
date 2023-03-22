@@ -42,7 +42,7 @@ div#cv-workExperience {
         display: flex;
         justify-content: flex-end;
         flex-wrap: wrap;
-        column-gap: 1em;
+        column-gap: 0.5em;
         *:first-child {
             margin-right: auto;
         }
@@ -52,23 +52,6 @@ div#cv-workExperience {
         }
         
     }
-    // div {
-    //     display: grid;
-    //     grid-template-columns: 4fr 1fr 0.5fr 0.5fr;
-    //     gap: 1em;
-    //     padding-bottom: 4em;
-    //     *:first-child {
-    //         border-right: 1px solid green;
-            
-    //     }
-    //     *:nth-child(2) {
-    //         grid-row: 1;
-    //         grid-column: 1;
-    //     }
-    //     *:nth-child(3)::after {
-    //         content: ' - ';
-    //     }
-    // }
 }
 
 @media (min-width: 930px) {
