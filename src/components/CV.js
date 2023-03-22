@@ -25,8 +25,13 @@ class CV extends React.Component {
                 stateName = (x === 'workExperience') ? 'experienceElements' : 'educationElements';
                 for (let y of arr) {
                     keysArr = Object.keys(data[x][y]);
+                    console.log(keysArr);
                     let el = <div id={'cv-'+y} key={uniqid()}>
-                        {keysArr.map((key) => <p id={'cv-' + y + key} key={uniqid()}>{data[x][y][key]}</p>)}
+                        {keysArr.map((key) => {
+                            let pElement = <p id={'cv-' + y + key} key={uniqid()}>{data[x][y][key]}</p>
+                            let signElement = (key ==="Company") ? <p>|</p> : (key ==="Start") ? <p>-</p> : false;
+                            return (!signElement)? pElement : <>{pElement}{signElement}</>;
+                        })}
                     </div>
                     elements.push(el);
                 }
@@ -37,7 +42,6 @@ class CV extends React.Component {
             
         }
     }
-    
     render() {
         return (
             <div className='CV'>
@@ -45,10 +49,12 @@ class CV extends React.Component {
                     {this.state.personalDataElements}
                 </div>
                 <div id='cv-workExperience'>
+                    <h3 class='text-uppercase'>work experience</h3>
                     {this.props.children[0]}
                     {this.state.experienceElements}
                 </div>
                 <div id='cv-education'>
+                    <h3 class='text-uppercase'>education</h3>
                     {this.props.children[1]}
                     {this.state.educationElements}
                 </div>    
