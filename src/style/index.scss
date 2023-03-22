@@ -6,12 +6,69 @@ div#root {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    div.App-form, div.CV {
+    form, div.CV {
         margin: 2em 4em;
         padding: 3em 2em;
         border: 1px solid black;
         width: 80vw;
     }
+}
+/* cv  */
+div#cv-personalData { /* grid */
+    color: teal;
+    display: grid;
+    grid-template-columns: 65% 35%;
+    * {
+        margin: 0
+    }
+    p#cv-personalDataName {
+        grid-row-start: 1;
+        grid-row-end: 3;
+        text-transform: uppercase;
+        font-size: 3em;
+        font-weight: 800;
+        margin: 0;
+    }
+    p#cv-personalDataPosition {
+        grid-row: 3;
+    }
+    p#cv-personalDataDescription {
+        grid-column-start: 1;
+        grid-column-end: 3;
+    }
+}
+div#cv-workExperience {
+    div {
+        display: flex;
+        justify-content: flex-end;
+        flex-wrap: wrap;
+        column-gap: 1em;
+        *:first-child {
+            margin-right: auto;
+        }
+        
+        *:last-child {
+            flex: 0 0 100%;
+        }
+        
+    }
+    // div {
+    //     display: grid;
+    //     grid-template-columns: 4fr 1fr 0.5fr 0.5fr;
+    //     gap: 1em;
+    //     padding-bottom: 4em;
+    //     *:first-child {
+    //         border-right: 1px solid green;
+            
+    //     }
+    //     *:nth-child(2) {
+    //         grid-row: 1;
+    //         grid-column: 1;
+    //     }
+    //     *:nth-child(3)::after {
+    //         content: ' - ';
+    //     }
+    // }
 }
 
 @media (min-width: 930px) {
@@ -21,4 +78,3 @@ div#root {
         justify-content: center;
     }
 }
-
