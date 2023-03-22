@@ -37,7 +37,7 @@ div#cv-personalData { /* grid */
         grid-column-end: 3;
     }
 }
-div#cv-workExperience {
+div#cv-workExperience, div#cv-education {
     div {
         display: flex;
         justify-content: flex-end;
