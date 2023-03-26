@@ -9,41 +9,22 @@ class Form extends React.Component {
     constructor() {
         super();
         this.state = {
-            personalDataSampleChildren: this.createInputs(false, 'personalData'),
-            expSampleChildren: this.createInputs(false, 'workExperience'),
-            eduSampleChildren: this.createInputs(false, 'education'),
+            expSampleChildren: this.mountInputs('workExperience', ['Company', 'Position', 'Start', 'End', 'Description']),
+            eduSampleChildren: this.mountInputs('education', ['Course', 'University', 'Start', 'End', 'Description']),
             expAddedChildren: [],
             eduAddedChildren: []
         };
     }
-    componentDidMount() {
-
-    }
-
-    createInputs(isCustomData, personalOrExpOrEdu) {
-        // placeholderNames === what inputs to create
-        let inputElements = [];
-        let placeholderNames = [];
-        let stateName;
-        if (personalOrExpOrEdu === 'personalData') {
-            placeholderNames = ['Name', 'Position', 'Phone', 'Mail', 'Location', 'Description'];
-            stateName = 'personalDataSampleChildren'
-            inputElements = <div id={personalOrExpOrEdu}  key={uniqid()}>
-                {placeholderNames.map((placeholder, i) => 
-                    <SampleInput placeholder={personalOrExpOrEdu+placeholder} key={i} />
-                )}
-            </div>;
-            return (inputElements)
-        } else {
-            let sectionArr = Object.keys(data[personalOrExpOrEdu]);
-            if (personalOrExpOrEdu === 'workExperience') {
-                placeholderNames = ['Company', 'Position', 'Start', 'End', 'Description']
-                stateName = (isCustomData) ? 'expAddedChildren' : 'expAddedChildren';
-                
-            } else {
-                placeholderNames = ['Course', 'University', 'Start', 'End', 'Description']
-                stateName = (isCustomData) ? 'eduSampleChildren' : 'eduAddedChildren';
-            }
+    mountInputs(section, placeholderNames) {
+        let inputs = [];
+        if (section === 'personalData') {
+            inputs = <div id={section}  key={uniqid()}>
+                    {placeholderNames.map((placeholder, i) => 
+                        <SampleInput placeholder={section+placeholder} key={i} />
+                    )}
+                </div>;
+        } else if (section === 'workExperience' || section === 'education') {
+            let sectionArr = Object.keys(data[section]);
             for (let section of sectionArr) {
                 let x = <div id={section}  key={uniqid()}>
                     {placeholderNames.map((placeholder, i) => 
@@ -51,19 +32,15 @@ class Form extends React.Component {
                     )}
                     <DeleteButton />
                 </div>;
-                inputElements.push(x)
+                inputs.push(x)
             }
-            return (inputElements)
         }
-        if (isCustomData) {
-
-        } else {
-
-        }
+        return (inputs)
     }
     appendComponents(e) {
         let parent = e.target.parentElement;
         let section = parent.getAttribute('id').slice(5); // section = id name
+        console.log(section);
         this.props.onAddChild(section); // creates cv section
 
         let placeholderNames = [];
@@ -92,7 +69,7 @@ class Form extends React.Component {
             <form>
                 <div>
                     <h2>Pesonal Details</h2>
-                    {this.state.personalDataSampleChildren}
+                    {this.mountInputs('personalData', ['Name', 'Position', 'Phone', 'Mail', 'Location', 'Description'])}
                     
                 </div>
                 <div id='form-workExperience'>
