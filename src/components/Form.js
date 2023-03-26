@@ -9,22 +9,41 @@ class Form extends React.Component {
     constructor() {
         super();
         this.state = {
-            expSampleChildren: this.mountInputs('workExperience', ['Company', 'Position', 'Start', 'End', 'Description']),
-            eduSampleChildren: this.mountInputs('education', ['Course', 'University', 'Start', 'End', 'Description']),
+            personalDataSampleChildren: this.createInputs(false, 'personalData'),
+            expSampleChildren: this.createInputs(false, 'workExperience'),
+            eduSampleChildren: this.createInputs(false, 'education'),
             expAddedChildren: [],
             eduAddedChildren: []
         };
     }
-    mountInputs(section, placeholderNames) {
-        let inputs = [];
-        if (section === 'personalData') {
-            inputs = <div id={section}  key={uniqid()}>
-                    {placeholderNames.map((placeholder, i) => 
-                        <SampleInput placeholder={section+placeholder} key={i} />
-                    )}
-                </div>;
-        } else if (section === 'workExperience' || section === 'education') {
-            let sectionArr = Object.keys(data[section]);
+    componentDidMount() {
+
+    }
+
+    createInputs(isCustomData, personalOrExpOrEdu) {
+        // placeholderNames === what inputs to create
+        let inputElements = [];
+        let placeholderNames = [];
+        let stateName;
+        if (personalOrExpOrEdu === 'personalData') {
+            placeholderNames = ['Name', 'Position', 'Phone', 'Mail', 'Location', 'Description'];
+            stateName = 'personalDataSampleChildren'
+            inputElements = <div id={personalOrExpOrEdu}  key={uniqid()}>
+                {placeholderNames.map((placeholder, i) => 
+                    <SampleInput placeholder={personalOrExpOrEdu+placeholder} key={i} />
+                )}
+            </div>;
+            return (inputElements)
+        } else {
+            let sectionArr = Object.keys(data[personalOrExpOrEdu]);
+            if (personalOrExpOrEdu === 'workExperience') {
+                placeholderNames = ['Company', 'Position', 'Start', 'End', 'Description']
+                stateName = (isCustomData) ? 'expAddedChildren' : 'expAddedChildren';
+                
+            } else {
+                placeholderNames = ['Course', 'University', 'Start', 'End', 'Description']
+                stateName = (isCustomData) ? 'eduSampleChildren' : 'eduAddedChildren';
+            }
             for (let section of sectionArr) {
                 let x = <div id={section}  key={uniqid()}>
                     {placeholderNames.map((placeholder, i) => 
@@ -32,17 +51,21 @@ class Form extends React.Component {
                     )}
                     <DeleteButton />
                 </div>;
-                inputs.push(x)
+                inputElements.push(x)
             }
+            return (inputElements)
         }
-        return (inputs)
+        if (isCustomData) {
+
+        } else {
+
+        }
     }
     appendComponents(e) {
         let parent = e.target.parentElement;
         let section = parent.getAttribute('id').slice(5); // section = id name
-
-        //this.props.onAddChild(section); // creates cv section
-
+        console.log(section);
+        this.props.onAddChild(section); // creates cv section
 
         let placeholderNames = [];
         let stateName;
@@ -60,9 +83,6 @@ class Form extends React.Component {
                 )}
                 <DeleteButton />
             </div>); 
-        // console.log(this.state[stateName]);
-
-        // console.log(div);
         this.setState({
             [stateName]: [...this.state[stateName], div]
         });
@@ -73,7 +93,7 @@ class Form extends React.Component {
             <form>
                 <div>
                     <h2>Pesonal Details</h2>
-                    {this.mountInputs('personalData', ['Name', 'Position', 'Phone', 'Mail', 'Location', 'Description'])}
+                    {this.state.personalDataSampleChildren}
                     
                 </div>
                 <div id='form-workExperience'>
