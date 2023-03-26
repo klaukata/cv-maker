@@ -64,7 +64,6 @@ class Form extends React.Component {
     appendComponents(e) {
         let parent = e.target.parentElement;
         let section = parent.getAttribute('id').slice(5); // section = id name
-        console.log(section);
         this.props.onAddChild(section); // creates cv section
 
         let placeholderNames = [];
