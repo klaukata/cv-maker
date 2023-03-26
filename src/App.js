@@ -10,7 +10,7 @@ class App extends React.Component {
     numOfAddedEduDivs: 0
   }
 
-  onAddExpDiv = (section) => {
+  onAddDiv = (section) => {
     if (section === 'workExperience') {
       this.setState({
         numOfAddedExpDivs: this.state.numOfAddedExpDivs + 1
@@ -29,16 +29,16 @@ class App extends React.Component {
     const childrenEdu = [];
 
     for (var i = 1; i < this.state.numOfAddedExpDivs + 1; i += 1) {
-      childrenExp.push(<CVSection num={i} key={i}/>);
+      childrenExp.push(<CVSection isExp={true} num={i} key={i}/>);
     };
-    for (var i = 1; i < this.state.numOfAddedEduDivs + 1; i += 1) {
-      childrenEdu.push(<CVSection num={i} key={i}/>);
+    for (var j = 1; j < this.state.numOfAddedEduDivs + 1; j += 1) {
+      childrenEdu.push(<CVSection isExp={false} num={j} key={j}/>);
     };
 
     return (
       <>
-        <Form onAddChild={this.onAddExpDiv} num={this.state.numOfAddedExpDivs} />
-        <CV onAddChild={this.onAddExpDiv}>
+        <Form onAddChild={this.onAddDiv} num={this.state.numOfAddedExpDivs} />
+        <CV onAddChild={this.onAddDiv}>
           {childrenExp}
           {childrenEdu}
         </CV>
