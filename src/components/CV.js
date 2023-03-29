@@ -25,7 +25,6 @@ class CV extends React.Component {
                 stateName = (x === 'workExperience') ? 'experienceElements' : 'educationElements';
                 for (let y of arr) {
                     keysArr = Object.keys(data[x][y]);
-                    console.log(keysArr);
                     let el = <div id={'cv-'+y} key={uniqid()}>
                         {keysArr.map((key) => {
                             let pElement = <p id={'cv-' + y + key} key={uniqid()}>{data[x][y][key]}</p>
