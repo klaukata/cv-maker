@@ -39,10 +39,8 @@ class Form extends React.Component {
     }
     appendComponents(e) {
         let parent = e.target.parentElement;
-        let section = parent.getAttribute('id').slice(5); // section = id name
-        console.log(section);
+        let section = parent.getAttribute('id').slice(5);
         this.props.onAddChild(section); // creates cv section
-
         let placeholderNames = [];
         let stateName;
         if (section === 'workExperience') {
@@ -55,7 +53,7 @@ class Form extends React.Component {
         let div = (
             <div id={'addedSection-' + section + (this.props.num+1)} key={uniqid()}>
                 {placeholderNames.map((placeholder, i) => 
-                    <Input placeholder={placeholder} key={i}/>
+                    <Input placeholder={placeholder} key={i} id={'form-addedSection-' + section + (this.props.num+1) + placeholder}/>
                 )}
                 <DeleteButton />
             </div>); 
