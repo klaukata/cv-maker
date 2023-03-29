@@ -3,11 +3,25 @@ import React from 'react';
 class CVSection extends React.Component {
     render() {
         let idName = (this.props.isExp) ? 'cv-addedSection-workExperience' : 'cv-addedSection-education';
-        return (
-            <div id={idName + this.props.num}>
-                <p>hello</p>  
+        let section;
+        let sectionNum = this.props.num;
+        idName = idName + sectionNum;
+        if (this.props.isExp) {
+            section = <div id={idName}>
+                <p id={idName + "Position"}>Position</p>
+                <p id={idName + "Company"}>Company</p>
+                <p>|</p>
+                <p id={idName + "Start"}>Start</p>
+                <p>-</p>
+                <p id={idName + "End"}>End</p>
+                <p id={idName + "Description"}>Description</p>
             </div>
-        )
+        } else {
+            section = <div>
+                <p>bye</p>
+            </div>
+        }
+        return section
     }
 }
 
