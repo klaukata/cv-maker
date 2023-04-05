@@ -49,13 +49,13 @@ class CV extends React.Component {
                 </div>
                 <div id='cv-workExperience'>
                     <h3 className='text-uppercase'>work experience</h3>
-                    {this.props.children[0]}
                     {this.state.experienceElements}
+                    {this.props.children[0]}
                 </div>
                 <div id='cv-education'>
                     <h3 className='text-uppercase'>education</h3>
-                    {this.props.children[1]}
                     {this.state.educationElements}
+                    {this.props.children[1]}
                 </div>    
                 
             </div>
