@@ -66,19 +66,19 @@ class Form extends React.Component {
         return (
             <form>
                 <div>
-                    <h2>Pesonal Details</h2>
+                    <h2 className='sectionHeader'>Pesonal Details</h2>
                     {this.mountInputs('personalData', ['Name', 'Position', 'Phone', 'Mail', 'Location', 'Description'])}
                     
                 </div>
                 <div id='form-workExperience'>
-                    <h2>Work Experience</h2>
+                    <h2 className='sectionHeader'>Work Experience</h2>
                     <button type='button' onClick={(e) => this.appendComponents(e)}>ADD</button>
                     {this.state.expSampleChildren.map(x => x)}
                     {this.state.expAddedChildren.map(x => x)}
 
                 </div>
                 <div id='form-education'>
-                    <h2>Education</h2>
+                    <h2 className='sectionHeader'>Education</h2>
                     <button type='button' onClick={(e) => this.appendComponents(e)}>ADD</button>
                     {this.state.eduSampleChildren.map(x => x)}
                     {this.state.eduAddedChildren.map(x => x)}
