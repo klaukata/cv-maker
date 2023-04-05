@@ -6,15 +6,27 @@ div#root {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    gap: 2em;
+    margin: 1em 3em;
     form, div.CV {
-        margin: 2em 4em;
-        padding: 3em 2em;
+        padding: 2em 4em;
         border: 1px solid black;
-        width: 80vw;
+        border-radius: 5px;
     }
 }
+form {
+    div#form-workExperience, div#form-education {
+        margin-top: 1em;
+        *:first-child, *:nth-child(2) {
+            display:inline-block;
+        }
+        
+    }
+
+    
+}
 /* cv  */
-div#cv-personalData { /* grid */
+div#cv-personalData { 
     color: teal;
     display: grid;
     grid-template-columns: 65% 35%;
@@ -54,10 +66,13 @@ div#cv-workExperience, div#cv-education {
     }
 }
 
-@media (min-width: 930px) {
+@media (min-width: 1150px) {
     div#root {
         flex-direction: row;
         align-items: normal;
         justify-content: center;
+        form, div.CV {
+            width: 100vw;
+        }
     }
 }
