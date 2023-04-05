@@ -7,8 +7,9 @@ class Input extends React.Component {
         document.getElementById(id).textContent = text;
     }
     render() {
+        let classNameToLowerCase = this.props.className.toLowerCase()
         return (
-            <input type="text" placeholder={this.props.placeholder} id={this.props.id} onInput={(el) => this.insertTxt(el)}/>
+            <input type="text" placeholder={this.props.placeholder}  className={classNameToLowerCase} id={this.props.id} onInput={(el) => this.insertTxt(el)}/>
         )
     }
 }

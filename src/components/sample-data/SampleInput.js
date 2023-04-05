@@ -35,8 +35,9 @@ class SampleInput extends React.Component {
     }
     render() {
         let placeholder = this.props.placeholder;
+        let classNameToLowerCase = this.props.className.toLowerCase()
         return (
-            <input type="text" id={'form-' + placeholder} 
+            <input type="text" id={'form-' + placeholder} className={classNameToLowerCase}
                 placeholder={this.slicePlaceholder(placeholder)} onInput={(el) => this.insertTxt(el)}
             />
         )
