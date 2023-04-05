@@ -17,8 +17,9 @@ div#root {
 form {
     div#form-workExperience, div#form-education {
         margin-top: 1em;
-        *:first-child, *:nth-child(2) {
-            display:inline-block;
+        div:first-child {
+            display: flex;
+            justify-content: space-between;
         }
         
     }
