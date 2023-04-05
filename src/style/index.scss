@@ -17,19 +17,17 @@ div#root {
     }
 }
 // form
+input {width: 50%}
+input.name, input.description {
+    width: 100%;
+}
+
 form {
     div#form-workExperience, div#form-education {
         margin-top: 1em;
         div:first-child {
             display: flex;
             justify-content: space-between;
-        }
-        div:not(:first-child) {
-            * {width: 50%}
-            
-        }
-        input.description {
-            width: 100%;
         }
     }
 }
