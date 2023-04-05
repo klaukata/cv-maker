@@ -1,5 +1,6 @@
 body {
     font-family: 'Inter', sans-serif;
+    box-sizing: border-box;
 }
 div#root {
     display: flex;
@@ -9,11 +10,13 @@ div#root {
     gap: 2em;
     margin: 1em 3em;
     form, div.CV {
-        padding: 2em 4em;
+        
+        padding: 1em 2em;
         border: 1px solid black;
         border-radius: 5px;
     }
 }
+// form
 form {
     div#form-workExperience, div#form-education {
         margin-top: 1em;
@@ -21,51 +24,59 @@ form {
             display: flex;
             justify-content: space-between;
         }
-        
+        div:not(:first-child) {
+            * {width: 50%}
+            
+        }
+        input.description {
+            width: 100%;
+        }
     }
-
+}
+div.CV {
+    word-break: break-word;
+    div#cv-personalData { 
+        color: teal;
+        display: grid;
+        grid-template-columns: 65% 35%;
+        * {
+            margin: 0
+        }
+        p#cv-personalDataName {
+            grid-row-start: 1;
+            grid-row-end: 3;
+            text-transform: uppercase;
+            font-size: 3em;
+            font-weight: 800;
+            margin: 0;
+        }
+        p#cv-personalDataPosition {
+            grid-row: 3;
+        }
+        p#cv-personalDataDescription {
+            grid-column-start: 1;
+            grid-column-end: 3;
+        }
+    }
+    div#cv-workExperience, div#cv-education {
+        div {
+            display: flex;
+            justify-content: flex-end;
+            flex-wrap: wrap;
+            column-gap: 0.5em;
+            *:first-child {
+                margin-right: auto;
+            }
+            
+            *:last-child {
+                flex: 0 0 100%;
+            }
+            
+        }
+    }
     
 }
-/* cv  */
-div#cv-personalData { 
-    color: teal;
-    display: grid;
-    grid-template-columns: 65% 35%;
-    * {
-        margin: 0
-    }
-    p#cv-personalDataName {
-        grid-row-start: 1;
-        grid-row-end: 3;
-        text-transform: uppercase;
-        font-size: 3em;
-        font-weight: 800;
-        margin: 0;
-    }
-    p#cv-personalDataPosition {
-        grid-row: 3;
-    }
-    p#cv-personalDataDescription {
-        grid-column-start: 1;
-        grid-column-end: 3;
-    }
-}
-div#cv-workExperience, div#cv-education {
-    div {
-        display: flex;
-        justify-content: flex-end;
-        flex-wrap: wrap;
-        column-gap: 0.5em;
-        *:first-child {
-            margin-right: auto;
-        }
-        
-        *:last-child {
-            flex: 0 0 100%;
-        }
-        
-    }
-}
+// cv
 
 @media (min-width: 1150px) {
     div#root {
