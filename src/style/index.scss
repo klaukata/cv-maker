@@ -8,7 +8,7 @@ div#root {
     justify-content: center;
     align-items: center;
     gap: 2em;
-    margin: 1em 3em;
+    margin: .5em 1em;
     form, div.CV {
         
         padding: 1em 2em;
@@ -18,9 +18,7 @@ div#root {
 }
 // form
 input {width: 50%}
-input.name, input.description {
-    width: 100%;
-}
+input.name, input.description {width: 100%}
 
 form {
     div#form-workExperience, div#form-education {
@@ -31,6 +29,7 @@ form {
         }
     }
 }
+
 div.CV {
     word-break: break-word;
     div#cv-personalData { 
@@ -75,14 +74,23 @@ div.CV {
     
 }
 // cv
-
-@media (min-width: 1150px) {
+@media (min-width: 500px) {
+    div#root {
+        margin: 1em 2em;
+    }
+}
+@media (min-width: 750px) {
+    div#root {
+        margin: 1.5em 3em;
+    }
+}
+@media (min-width:900px) {
     div#root {
         flex-direction: row;
         align-items: normal;
         justify-content: center;
         form, div.CV {
-            width: 100vw;
+            width: 40em;
         }
     }
 }
