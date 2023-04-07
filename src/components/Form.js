@@ -28,7 +28,7 @@ class Form extends React.Component {
             for (let section of sectionArr) {
                 let x = <div id={section}  key={uniqid()}>
                     {placeholderNames.map((placeholder, i) => 
-                        <SampleInput className={placeholderNames[i]} placeholder={section+placeholder} key={i} />
+                        <SampleInput className={`${placeholderNames[i]} inputSet`} placeholder={section+placeholder} key={i} />
                     )}
                     <DeleteButton />
                 </div>;
@@ -53,7 +53,7 @@ class Form extends React.Component {
         let div = (
             <div id={'addedSection-' + section + (this.props.num+1)} key={uniqid()}>
                 {placeholderNames.map((placeholder, i) => 
-                    <Input className={placeholderNames[i]} placeholder={placeholder} key={i} id={'form-addedSection-' + section + (this.props.num+1) + placeholder}/>
+                    <Input className={`${placeholderNames[i]} inputSet`} placeholder={placeholder} key={i} id={'form-addedSection-' + section + (this.props.num+1) + placeholder}/>
                 )}
                 <DeleteButton />
             </div>); 
@@ -66,7 +66,9 @@ class Form extends React.Component {
         return (
             <form>
                 <div>
-                    <h2 className='sectionHeader'>Pesonal Details</h2>
+                    <div>
+                        <h2 className='sectionHeader'>Pesonal Details</h2>    
+                    </div>
                     {this.mountInputs('personalData', ['Name', 'Position', 'Phone', 'Mail', 'Location', 'Description'])}
                     
                 </div>
