@@ -10,7 +10,6 @@ div#root {
     gap: 2em;
     margin: .5em 1em;
     form, div.CV {
-        
         padding: 1em 2em;
         border: 1px solid black;
         border-radius: 5px;
@@ -91,6 +90,8 @@ div.CV {
         justify-content: center;
         form, div.CV {
             width: 40em;
+            height: 94vh;
+            overflow: scroll;
         }
     }
 }
