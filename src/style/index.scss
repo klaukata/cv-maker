@@ -29,8 +29,17 @@ form {
     }
 }
 
+p#cv-personalDataDescription {
+    margin-top: .5em !important;
+}
+div.deleteButton {
+    display: flex;
+    justify-content: flex-end;
+}
+// cv
 div.CV {
     word-break: break-word;
+    p {margin-bottom: 0.5em}
     div#cv-personalData { 
         color: teal;
         display: grid;
@@ -55,15 +64,16 @@ div.CV {
         }
     }
     div#cv-workExperience, div#cv-education {
+        margin-top: .5em;
         div {
             display: flex;
             justify-content: flex-end;
             flex-wrap: wrap;
+            padding-bottom: .25em;
             column-gap: 0.5em;
             *:first-child {
                 margin-right: auto;
             }
-            
             *:last-child {
                 flex: 0 0 100%;
             }
@@ -83,7 +93,7 @@ div.CV {
         margin: 1.5em 3em;
     }
 }
-@media (min-width:900px) {
+@media (min-width:1000px) {
     div#root {
         flex-direction: row;
         align-items: normal;
