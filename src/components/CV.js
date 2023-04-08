@@ -18,8 +18,18 @@ class CV extends React.Component {
             let stateName;
             if (x === 'personalData') {
                 stateName = 'personalDataElements';
-                keysArr = Object.keys(data[x]);
-                elements = keysArr.map((key) => <p id={'cv-personalData' + key} key={uniqid()}>{data[x][key]}</p>);
+                elements = <div id='cv-personalData'>
+                    <div>
+                        <p id={'cv-personalDataName'}>{data[x]['Name']}</p>
+                        <p id={'cv-personalDataPosition'}>{data[x]['Name']}</p>
+                    </div>
+                    <div>
+                        <p id={'cv-personalDataPhone'}>{data[x]['Phone']}</p>
+                        <p id={'cv-personalDataMail'}>{data[x]['Mail']}</p>
+                        <p id={'cv-personalDataLocation'}>{data[x]['Location']}</p>
+                    </div>
+                    <p id={'cv-personalDataDescription'}>{data[x]['Description']}</p>
+                </div>
             } else if (x === 'workExperience' || x === 'education') {
                 let arr = Object.keys(data[x]);
                 stateName = (x === 'workExperience') ? 'experienceElements' : 'educationElements';
@@ -34,6 +44,7 @@ class CV extends React.Component {
                     </div>
                     elements.push(el);
                 }
+                
             }
             this.setState({
                 [stateName]: [...this.state[stateName], elements]
@@ -46,6 +57,7 @@ class CV extends React.Component {
             <div className='CV'>
                 <div id='cv-personalData'>
                     {this.state.personalDataElements}
+                    {console.log(this.state.personalDataElements[0])}
                 </div>
                 <div id='cv-workExperience'>
                     <h3 className='text-uppercase'>work experience</h3>
