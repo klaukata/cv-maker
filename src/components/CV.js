@@ -26,15 +26,15 @@ class CV extends React.Component {
                         </div>
                         <div>
                             <div id={'cv-personalDataPhoneDiv'} className={'d-flex gap-2'}>
-                                <i class="bi bi-telephone"></i>
+                                <i className="bi bi-telephone"></i>
                                 <p id={'cv-personalDataPhone'}>{data[x]['Phone']}</p>
                             </div>
                             <div id={'cv-personalDataMailDiv'} className={'d-flex gap-2'}>
-                                <i class="bi bi-envelope"></i>
+                                <i className="bi bi-envelope"></i>
                                 <p id={'cv-personalDataMail'}>{data[x]['Mail']}</p>
                             </div>
                             <div id={'cv-personalDataLocationDiv'} className={'d-flex gap-2'}>
-                                <i class="bi bi-geo-alt"></i>
+                                <i className="bi bi-geo-alt"></i>
                                 <p id={'cv-personalDataLocation'}>{data[x]['Location']}</p>
                             </div>
                         </div>    
