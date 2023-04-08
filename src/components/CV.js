@@ -69,7 +69,6 @@ class CV extends React.Component {
             <div className='CV'>
                 <div id='cv-personalData'>
                     {this.state.personalDataElements}
-                    {console.log(this.state.personalDataElements[0])}
                 </div>
                 <div id='cv-workExperience'>
                     <h3 className='text-uppercase'>work experience</h3>

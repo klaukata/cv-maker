@@ -35,7 +35,6 @@ class SampleInput extends React.Component {
     }
     render() {
         let placeholder = this.props.placeholder;
-        console.log(placeholder);
         let classNameToLowerCase = this.props.className.toLowerCase()
         let returnStatement;
         if (placeholder==='personalDataDescription') {
