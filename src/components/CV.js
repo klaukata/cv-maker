@@ -19,15 +19,27 @@ class CV extends React.Component {
             if (x === 'personalData') {
                 stateName = 'personalDataElements';
                 elements = <div id='cv-personalData'>
-                    <div>
-                        <p id={'cv-personalDataName'}>{data[x]['Name']}</p>
-                        <p id={'cv-personalDataPosition'}>{data[x]['Name']}</p>
+                    <div className='d-flex justify-content-between'>
+                        <div>
+                            <h1 id={'cv-personalDataName'}>{data[x]['Name']}</h1>
+                            <p id={'cv-personalDataPosition'}>{data[x]['Position']}</p>
+                        </div>
+                        <div>
+                            <div id={'cv-personalDataPhoneDiv'} className={'d-flex gap-2'}>
+                                <i class="bi bi-telephone"></i>
+                                <p id={'cv-personalDataPhone'}>{data[x]['Phone']}</p>
+                            </div>
+                            <div id={'cv-personalDataMailDiv'} className={'d-flex gap-2'}>
+                                <i class="bi bi-envelope"></i>
+                                <p id={'cv-personalDataMail'}>{data[x]['Mail']}</p>
+                            </div>
+                            <div id={'cv-personalDataLocationDiv'} className={'d-flex gap-2'}>
+                                <i class="bi bi-geo-alt"></i>
+                                <p id={'cv-personalDataLocation'}>{data[x]['Location']}</p>
+                            </div>
+                        </div>    
                     </div>
-                    <div>
-                        <p id={'cv-personalDataPhone'}>{data[x]['Phone']}</p>
-                        <p id={'cv-personalDataMail'}>{data[x]['Mail']}</p>
-                        <p id={'cv-personalDataLocation'}>{data[x]['Location']}</p>
-                    </div>
+                    
                     <p id={'cv-personalDataDescription'}>{data[x]['Description']}</p>
                 </div>
             } else if (x === 'workExperience' || x === 'education') {
