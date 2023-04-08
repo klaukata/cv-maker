@@ -32,9 +32,8 @@ form {
         }
     }
 }
-
-p#cv-personalDataDescription {
-    margin-top: .5em !important;
+textarea {
+    width: 100%;
 }
 div.deleteButton {
     display: flex;
@@ -75,7 +74,9 @@ div.CV {
     }
     
 }
-// cv
+p#cv-personalDataDescription {
+    margin-top: .5em !important;
+}
 @media (min-width: 500px) {
     div#root {
         margin: 1em 2em;
