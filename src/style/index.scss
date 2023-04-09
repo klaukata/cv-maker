@@ -10,13 +10,14 @@ div#root {
     gap: 2em;
     margin: .5em 1em;
     form, div.CV {
-        padding: 1em 2em;
-        border: 1px solid black;
+        border: 1px solid gray;
         border-radius: 5px;
     }
 }
+p {font-size: 0.9em};
+i {color: #CD6666}
 // form
-input {width: 50%}
+input {width: 100%}
 input.name, input.description {width: 100%}
 
 form {
@@ -44,8 +45,7 @@ div.deleteButton {
 div.CV {
     word-break: break-word;
     p {margin-bottom: 0.5em}
-    div#cv-personalData { 
-        color: teal;
+    div#cv-personalData {
         * {
             margin: 0
         }
@@ -53,23 +53,30 @@ div.CV {
             text-transform: uppercase;
             font-weight: 800;
             margin: 0;
+            color: #333367;
         }
+        #cv-personalDataPosition {color: #565656} // maybe we can use it as a var?
     }
     div#cv-workExperience, div#cv-education {
-        margin-top: .5em;
+        h4 {
+            color: #86423E;
+            font-weight: 600;
+            letter-spacing: -1px;
+        }
         div {
             display: flex;
             justify-content: flex-end;
             flex-wrap: wrap;
             padding-bottom: .25em;
             column-gap: 0.5em;
+            
             *:first-child {
                 margin-right: auto;
             }
             *:last-child {
                 flex: 0 0 100%;
             }
-            
+
         }
     }
     
@@ -77,10 +84,14 @@ div.CV {
 p#cv-personalDataDescription {
     margin-top: .5em !important;
 }
+
+
+
 @media (min-width: 500px) {
     div#root {
         margin: 1em 2em;
     }
+    input {width: 50%}
     
 }
 @media (min-width: 750px) {
