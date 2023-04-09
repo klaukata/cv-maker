@@ -66,17 +66,17 @@ class CV extends React.Component {
     }
     render() {
         return (
-            <div className='CV'>
-                <div id='cv-personalData'>
+            <div className='CV p-3 p-md-4'>
+                <div id='cv-personalData' className='pb-3 border-bottom'>
                     {this.state.personalDataElements}
                 </div>
-                <div id='cv-workExperience'>
-                    <h3 className='text-uppercase'>work experience</h3>
+                <div id='cv-workExperience' className='pt-3'>
+                    <h4 className='text-uppercase'>work experience</h4>
                     {this.state.experienceElements}
                     {this.props.children[0]}
                 </div>
-                <div id='cv-education'>
-                    <h3 className='text-uppercase'>education</h3>
+                <div id='cv-education' className='pt-3'>
+                    <h4 className='text-uppercase'>education</h4>
                     {this.state.educationElements}
                     {this.props.children[1]}
                 </div>    
