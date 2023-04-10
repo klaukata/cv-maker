@@ -40,7 +40,7 @@ class CV extends React.Component {
                         </div>    
                     </div>
                     
-                    <p id={'cv-personalDataDescription'}>{data[x]['Description']}</p>
+                    <p id={'cv-personalDataDescription'} className={'pt-2'}>{data[x]['Description']}</p>
                 </div>
             } else if (x === 'workExperience' || x === 'education') {
                 let arr = Object.keys(data[x]);
@@ -67,15 +67,15 @@ class CV extends React.Component {
     render() {
         return (
             <div className='CV p-3 p-sm-4 px-md-5'>
-                <div id='cv-personalData' className='pb-3 border-bottom'>
+                <div id='cv-personalData' className='pb-4 border-bottom'>
                     {this.state.personalDataElements}
                 </div>
-                <div id='cv-workExperience' className='pt-3'>
+                <div id='cv-workExperience' className='pt-4'>
                     <h4 className='text-uppercase'>work experience</h4>
                     {this.state.experienceElements}
                     {this.props.children[0]}
                 </div>
-                <div id='cv-education' className='pt-3'>
+                <div id='cv-education' className='pt-4'>
                     <h4 className='text-uppercase'>education</h4>
                     {this.state.educationElements}
                     {this.props.children[1]}
