@@ -8,7 +8,7 @@ div#root {
     justify-content: center;
     align-items: center;
     gap: 2em;
-    margin: .5em 1em;
+    margin: .5vh 1em;
     form, div.CV {
         border: 1px solid gray;
         border-radius: 5px;
@@ -101,15 +101,33 @@ p#cv-personalDataDescription {
     input {width: 25%}
 }
 @media (min-width:1000px) {
+    body {
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
     div#root {
+        margin-top: 0;
+        margin-bottom: 0;
         flex-direction: row;
-        align-items: normal;
+        align-items: center;
         justify-content: center;
         form, div.CV {
-            width: 40em;
+            width: 30em;
             height: 94vh;
             overflow: scroll;
         }
     }
     input {width: 50%}
+}
+@media (min-width:1200px) {
+    form, div.CV {
+        width: 35em !important;
+    }
+}
+@media (min-width:1350px) {
+    form, div.CV {
+        width: 40em !important;
+    }
 }
