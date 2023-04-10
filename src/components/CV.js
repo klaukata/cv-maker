@@ -66,7 +66,7 @@ class CV extends React.Component {
     }
     render() {
         return (
-            <div className='CV p-3 p-md-4'>
+            <div className='CV p-3 p-sm-4 px-md-5'>
                 <div id='cv-personalData' className='pb-3 border-bottom'>
                     {this.state.personalDataElements}
                 </div>

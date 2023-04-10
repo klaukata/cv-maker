@@ -64,7 +64,7 @@ class Form extends React.Component {
     }
     render() {
         return (
-            <form className='p-3 p-md-4'>
+            <form className='p-3 p-sm-4 px-md-5'>
                 <div>
                     <div>
                         <h2 className='sectionHeader'>Pesonal Details</h2>    
