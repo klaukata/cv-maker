@@ -62,27 +62,31 @@ div.CV {
             color: #D98462;
             font-weight: 600;
             letter-spacing: -1px;
+            //margin-bottom: 0;
         }
         div {
             display: flex;
             justify-content: flex-end;
             flex-wrap: wrap;
-            padding-bottom: .25em;
             column-gap: 0.5em;
-            
+            margin-bottom: .75em;
+            p {margin: 0}
             *:first-child {
                 margin-right: auto;
+                font-weight: 600;
+                font-size: 1em;
+            }
+            *:nth-child(2) {
+                font-style: italic;
             }
             *:last-child {
                 flex: 0 0 100%;
             }
 
         }
+        *:last-child {margin-bottom: 0;}
     }
     
-}
-p#cv-personalDataDescription {
-    margin-top: .5em !important;
 }
 
 
