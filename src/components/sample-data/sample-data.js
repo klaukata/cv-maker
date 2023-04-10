@@ -26,7 +26,7 @@ let data = {
     education: {
         educ1: {
             Course: 'Computer Science',
-            University: 'University of Edinburgh',
+            University: 'University of Lorem',
             Start: '2018',
             End: '2021',
             Description: 'Aliquam tortor quam, laoreet feugiat lectus sed, euismod bibendum enim. Maecenas laoreet aliquet mauris id accumsan. Etiam commodo sit amet orci quis feugiat.'    
