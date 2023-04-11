@@ -26,7 +26,7 @@ class Form extends React.Component {
         } else if (section === 'workExperience' || section === 'education') {
             let sectionArr = Object.keys(data[section]);
             for (let section of sectionArr) {
-                let x = <div id={section}  key={uniqid()}>
+                let x = <div className='mt-2' id={section}  key={uniqid()}>
                     {placeholderNames.map((placeholder, i) => 
                         <SampleInput className={placeholderNames[i]} placeholder={section+placeholder} key={i} />
                     )}
@@ -51,7 +51,7 @@ class Form extends React.Component {
             stateName = 'eduAddedChildren'
         };
         let div = (
-            <div id={'addedSection-' + section + (this.props.num+1)} key={uniqid()}>
+            <div className='mt-2' id={'addedSection-' + section + (this.props.num+1)} key={uniqid()}>
                 {placeholderNames.map((placeholder, i) => 
                     <Input className={placeholderNames[i]} placeholder={placeholder} key={i} id={'form-addedSection-' + section + (this.props.num+1) + placeholder}/>
                 )}
@@ -65,17 +65,17 @@ class Form extends React.Component {
     render() {
         return (
             <form className='p-3 p-sm-4 px-md-5'>
-                <div className='mb-3'>
+                <div className='pb-3 border-bottom'>
                     <div>
                         <h4 className='sectionHeader'>Pesonal Details</h4>    
                     </div>
                     {this.mountInputs('personalData', ['Name', 'Position', 'Phone', 'Mail', 'Location', 'Description'])}
                     
                 </div>
-                <div id='form-workExperience' className='mb-3'>
+                <div id='form-workExperience' className='pb-3 border-bottom'>
                     <div>
                         <h4 className='sectionHeader'>Work Experience</h4>
-                        <button type='button' onClick={(e) => this.appendComponents(e)}>ADD</button>    
+                        <button className='btn btn-primary' type='button' onClick={(e) => this.appendComponents(e)}>ADD</button>    
                     </div>
                     {this.state.expSampleChildren.map(x => x)}
                     {this.state.expAddedChildren.map(x => x)}
@@ -84,7 +84,7 @@ class Form extends React.Component {
                 <div id='form-education'>
                     <div>
                         <h4 className='sectionHeader'>Education</h4>
-                        <button type='button' onClick={(e) => this.appendComponents(e)}>ADD</button>    
+                        <button className='btn btn-primary' type='button' onClick={(e) => this.appendComponents(e)}>ADD</button>    
                     </div>
                     {this.state.eduSampleChildren.map(x => x)}
                     {this.state.eduAddedChildren.map(x => x)}
