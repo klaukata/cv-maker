@@ -9,7 +9,7 @@ class Form extends React.Component {
     constructor() {
         super();
         this.state = {
-            expSampleChildren: this.mountInputs('workExperience', ['Company', 'Position', 'Start', 'End', 'Description']),
+            expSampleChildren: this.mountInputs('workExperience', ['Position','Company',  'Start', 'End', 'Description']),
             eduSampleChildren: this.mountInputs('education', ['Course', 'University', 'Start', 'End', 'Description']),
             expAddedChildren: [],
             eduAddedChildren: []
