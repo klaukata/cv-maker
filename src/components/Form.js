@@ -77,8 +77,8 @@ class Form extends React.Component {
                         <h4 className='sectionHeader'>Work Experience</h4>
                         <button className='btn btn-primary' type='button' onClick={(e) => this.appendComponents(e)}>ADD</button>    
                     </div>
-                    {this.state.expSampleChildren.map(x => x)}
                     {this.state.expAddedChildren.map(x => x)}
+                    {this.state.expSampleChildren.map(x => x)}
 
                 </div>
                 <div id='form-education'>
@@ -86,8 +86,8 @@ class Form extends React.Component {
                         <h4 className='sectionHeader'>Education</h4>
                         <button className='btn btn-primary' type='button' onClick={(e) => this.appendComponents(e)}>ADD</button>    
                     </div>
-                    {this.state.eduSampleChildren.map(x => x)}
                     {this.state.eduAddedChildren.map(x => x)}
+                    {this.state.eduSampleChildren.map(x => x)}
                 </div>
             </form>
         )
