@@ -1,5 +1,4 @@
 import React from 'react';
-import './App.css';
 import Form from './components/Form'
 import CV from './components/CV';
 import CVSection from './components/CVAddedSection';
@@ -29,15 +28,15 @@ class App extends React.Component {
     const childrenEdu = [];
 
     for (var i = 1; i < this.state.numOfAddedExpDivs + 1; i += 1) {
-      childrenExp.push(<CVSection isExp={true} num={i} key={i}/>);
+      childrenExp.unshift(<CVSection isExp={true} num={i} key={i}/>);
     };
     for (var j = 1; j < this.state.numOfAddedEduDivs + 1; j += 1) {
-      childrenEdu.push(<CVSection isExp={false} num={j} key={j}/>);
+      childrenEdu.unshift(<CVSection isExp={false} num={j} key={j}/>);
     };
 
     return (
       <>
-        <Form onAddChild={this.onAddDiv} num={this.state.numOfAddedExpDivs} />
+        <Form onAddChild={this.onAddDiv} num={this.state.numOfAddedExpDivs}/>
         <CV onAddChild={this.onAddDiv}>
           {childrenExp}
           {childrenEdu}
