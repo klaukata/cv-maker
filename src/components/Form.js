@@ -58,7 +58,7 @@ class Form extends React.Component {
                 <DeleteButton />
             </div>); 
         this.setState({
-            [stateName]: [...this.state[stateName], div]
+            [stateName]: [div, ...this.state[stateName]]
         });
     
     }
