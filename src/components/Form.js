@@ -44,7 +44,7 @@ class Form extends React.Component {
         let placeholderNames = [];
         let stateName;
         if (section === 'workExperience') {
-            placeholderNames = ['Company', 'Position', 'Start', 'End', 'Description'];
+            placeholderNames = ['Position', 'Company', 'Start', 'End', 'Description'];
             stateName = 'expAddedChildren'
         } else {
             placeholderNames = ['Course', 'University', 'Start', 'End', 'Description'];
