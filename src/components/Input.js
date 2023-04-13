@@ -7,10 +7,18 @@ class Input extends React.Component {
         document.getElementById(id).textContent = text;
     }
     render() {
+        let placeholder = this.props.placeholder;
         let classNameToLowerCase = this.props.className.toLowerCase()
-        return (
-            <input type="text" placeholder={this.props.placeholder}  className={classNameToLowerCase} id={this.props.id} onInput={(el) => this.insertTxt(el)}/>
-        )
+        let returnStatement;
+        if (placeholder.includes('Description')) {
+            returnStatement = <textarea id={this.props.id} className={classNameToLowerCase} 
+            placeholder={this.props.placeholder} rows={2} onInput={(el) => this.insertTxt(el)}></textarea>
+        } else {
+            returnStatement = <input type="text" placeholder={this.props.placeholder} 
+                className={classNameToLowerCase} id={this.props.id} onInput={(el) => this.insertTxt(el)}
+            />
+        }
+        return returnStatement
     }
 }
 
