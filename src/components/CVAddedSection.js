@@ -17,9 +17,16 @@ class CVSection extends React.Component {
                 <p id={idName + "Description"}>Description</p>
             </div>
         } else {
-            section = <div>
-                <p>bye</p>
+            section = <div id={idName}>
+                <p id={idName + "Course"}>Course</p>
+                <p id={idName + "University"}>University</p>
+                <p>|</p>
+                <p id={idName + "Start"}>Start</p>
+                <p>-</p>
+                <p id={idName + "End"}>End</p>
+                <p id={idName + "Description"}>Description</p>
             </div>
+
         }
         return section
     }
