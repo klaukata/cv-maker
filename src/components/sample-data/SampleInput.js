@@ -38,7 +38,7 @@ class SampleInput extends React.Component {
         let classNameToLowerCase = this.props.className.toLowerCase()
         let returnStatement;
         if (placeholder.includes('Description')) {
-            let numOfRows = 2
+            let numOfRows = 2;
             if (placeholder==='personalDataDescription') numOfRows = 3
             returnStatement = <textarea id={'form-' + placeholder} className={classNameToLowerCase} rows={numOfRows} onInput={(el) => this.insertTxt(el)}></textarea>
         } else {
