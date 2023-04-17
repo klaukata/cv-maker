@@ -59,7 +59,7 @@ class CV extends React.Component {
                 
             }
             this.setState({
-                [stateName]: [...this.state[stateName], elements]
+                [stateName]: [elements, ...this.state[stateName]]
             }); 
             
         }
